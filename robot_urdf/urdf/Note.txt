@@ -1,0 +1,8 @@
+link->base_box respectively joint->base_link_box
+link->link1_frame2 respectively joint->link1_frame1_frame2
+link->link1_frame4 respectively joint->link1_frame2_frame4
+link->link1_frame5 respectively joint->link1_frame4_frame5
+link->link3_frame2 respectively joint->link3_frame1_frame2
+link->link3_frame3 respectively joint->link3_frame2_frame3
+
+!!! Should not be used in moveit setup assistant !!!

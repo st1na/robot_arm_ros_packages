@@ -1,0 +1,15 @@
+controller_list:
+  - name: fake_robot_arm_controller
+    joints:
+      - joint0
+      - joint1
+      - joint2
+      - link2_bar1
+      - link2_bar1_bar2
+      - joint3
+      - joint4
+      - vj0
+      - vj1
+  - name: fake_hand_controller
+    joints:
+      - gripper

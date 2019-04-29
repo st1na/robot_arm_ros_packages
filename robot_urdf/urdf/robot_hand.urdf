@@ -1,0 +1,101 @@
+<robot name="hand">
+
+	<material name="red">
+		<color rgba="0.8 0 0 1"/>
+	</material>
+
+	<material name="blue">
+		<color rgba="0 0 0.8 1"/>
+	</material>
+	
+	<material name="white">
+		<color rgba="1 1 1 1"/>
+	</material>
+
+	<material name="black">
+		<color rgba="0 0 0 1"/>
+	</material>
+
+  <link name="hand_base">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+				<box size="0.5 0.4 0.03"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+  </link>
+
+
+  <link name="hand_right_finger">
+    <visual>
+      <origin xyz="0.11 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://robot_urdf/meshes/hand_right_finger.STL"
+		    scale="11 11 11" />
+      </geometry>
+      <material name="white"/>
+    </visual>
+  </link>
+
+  <joint name="hand_base_right" type="revolute">
+    <origin
+      xyz="0 -0.15 0.06"
+      rpy="-1.57 0 3.0 " />
+    <parent link="hand_base" />
+    <child link="hand_right_finger" />
+    <axis xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0.57"
+      effort="1000"
+      velocity="0.5" />
+  </joint>
+
+	<!-- Right finger servo -->
+	<link name="right_finger_servo">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+				<box size="0.2 0.4 0.4"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+  </link>
+
+	<joint name="hand_right_servo" type="fixed">
+		<parent link="hand_base"/>
+		<child link="right_finger_servo"/>
+		<origin rpy="0 0 0" xyz="0 -0.25 -0.22"/>
+	</joint>
+
+
+
+  <link name="hand_left_finger">
+    <visual>
+      <origin xyz="0.11 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://robot_urdf/meshes/hand_left_finger.STL" 
+		    scale="11 11 11" />
+      </geometry>
+      <material name="white"/>
+    </visual>
+  </link>
+
+  <joint name="hand_base_left" type="revolute">
+		<mimic joint="hand_base_right"/>
+    <origin
+      xyz="0 0.15 0.06"
+      rpy="-1.57 0 0.52" />
+    <parent link="hand_base" />
+    <child link="hand_left_finger" />
+    <axis xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="0.57"
+      effort="1000"
+      velocity="1000" />
+  </joint>
+</robot>

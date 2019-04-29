@@ -1,0 +1,15 @@
+<launch>
+
+	<include file="$(find robot_moveit_config)/launch/moveit_start.launch">
+	</include>
+
+	<node pkg="code_samples" name="get_input" type="get_input.py" output="screen">
+	</node>
+
+	<node pkg="code_samples" name="joints_calc" type="joints_calc.py" output="screen">
+	</node>
+
+	<node pkg="code_samples" name="send_joints" type="send_joints.py" output="screen">
+	</node>
+
+</launch>
