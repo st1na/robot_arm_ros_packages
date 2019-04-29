@@ -35,7 +35,7 @@ def publish_random_pose():
     while not rospy.is_shutdown(): 
         pose_goal = random_pose()
         # Check if z is less than 0
-        while pose_goal.position.z < 1:
+        while pose_goal.position.z < 1 or pose_goal.position.x<0:
             pose_goal = random_pose()
             
         pub.publish(pose_goal)
