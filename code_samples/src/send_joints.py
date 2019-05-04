@@ -3,7 +3,7 @@
 import rospy
 import geometry_msgs.msg
 import sensor_msgs.msg
-#import spidev
+import spidev
 import time
 
 
